@@ -234,15 +234,40 @@ return product;
 
 };
 
+getbyCategoria(categoria: string){
+    const product = this.products.find(x => x.categoria == categoria);
+    return product;
+    
+    };
+
 create(product: Product){
+ let ultimoId = 0;
+ if (this.products.length > 0){
+     ultimoId = this.products[this.products.length - 1].id;
+ };
+ product.id = ultimoId + 1;
+ this.products.push(product);
+ return product; 
 
 };
 
 update(product: Product){
+    const productArray = this.getbyId(product.id);
+    if (productArray){
+        productArray.categoria = product.categoria, 
+        productArray.descricao = product.descricao, 
+        productArray.grif = product.grif, 
+        productArray.preco = product.preco, 
+        productArray.produto = product.produto,  
+        productArray.url = product.url
+    };
+    return product;
 
 };
 
 delete(id: number){
+    const index = this.products.findIndex(p => p.id == id);
+    this.products.splice(index, 1)
 
 };
 
