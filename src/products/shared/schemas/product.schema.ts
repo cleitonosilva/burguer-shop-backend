@@ -7,5 +7,4 @@ export const ProductSchema = new mongoose.Schema({
     descricao: String,
     preco: Number,
     url: String,
-    
 })
