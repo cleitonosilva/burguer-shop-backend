@@ -16,7 +16,7 @@ async getAll() : Promise<Product[]>{
 };
 
 @Get(':id')
-async getbyId(@Param('id') id : number) : Promise<Product>{
+async getbyId(@Param('id') id : String) : Promise<Product>{
      return this.productService.getbyId(id);
 };
 
@@ -31,13 +31,12 @@ async create(@Body() product : Product): Promise<Product>{
 };
 
 @Put(':id')
-async update(@Param('id') id : number, @Body() product : Product) : Promise<Product> {
-product.id = id;
-return this.productService.update(product);
+async update(@Param('id') id : string, @Body() product : Product) : Promise<Product> {
+return this.productService.update(id, product);
 };
 
 @Delete(':id')
-async delete(@Param('id') id : number){
+async delete(@Param('id') id : string){
     this.productService.delete(id);
 };
 
