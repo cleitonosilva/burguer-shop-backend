@@ -5,6 +5,6 @@ export class Product {
     descricao: string;
     preco: number;
     url: string;
-    id: number;
+    
    
 }
