@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
+import { Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
 import { Product } from './shared/product';
 import { ProductService } from './shared/product.service';
 
@@ -10,35 +10,41 @@ export class ProductsController {
     private productService: ProductService,
     ){ }
 
-@Get()
+@Get('listar')
 async getAll() : Promise<Product[]>{
-     return this.productService.getAll()
+     return this.productService.listar()
 };
 
-@Get(':id')
-async getbyId(@Param('id') id : number) : Promise<Product>{
-     return this.productService.getbyId(id);
-};
+// @Post()
+// async create(@Body() product : Product): Promise<Product>{
+//     return this.productService.create(product);
+// };
 
-@Get(':categoria')
-async getbyCategoria(@Param('categoria') categoria : string) : Promise<Product>{
-     return this.productService.getbyCategoria(categoria);
-};
+// @Get(':id')
+// async getbyId(@Param('id') id : number) : Promise<Product>{
+//      return this.productService.getbyId(id);
+// };
 
-@Post()
-async create(@Body() product : Product): Promise<Product>{
-    return this.productService.create(product);
-};
+// @Get(':categoria')
+// async getbyCategoria(@Param('categoria') categoria : string) : Promise<Product>{
+//      return this.productService.getbyCategoria(categoria);
+// };
 
-@Put(':id')
-async update(@Param('id') id : number, @Body() product : Product) : Promise<Product> {
-product.id = id;
-return this.productService.update(product);
-};
+// @Post()
+// async create(@Body() product : Product): Promise<Product>{
+//     return this.productService.create(product);
+// };
 
-@Delete(':id')
-async delete(@Param('id') id : number){
-    this.productService.delete(id);
-};
+// @Put(':id')
+// async update(@Param('id') id : number, @Body() product : Product) : Promise<Product> {
+// product.id = id;
+// return this.productService.update(product);
+// };
+
+// @Delete(':id')
+// async delete(@Param('id') id : number){
+//     this.productService.delete(id);
+// };
 
 }
+ 
