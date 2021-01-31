@@ -1,4 +1,4 @@
-import { Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
 import { Product } from './shared/product';
 import { ProductService } from './shared/product.service';
 
@@ -11,14 +11,14 @@ export class ProductsController {
     ){ }
 
 @Get('listar')
-async getAll() : Promise<Product[]>{
+async listar() : Promise<Product[]>{
      return this.productService.listar()
 };
 
-// @Post()
-// async create(@Body() product : Product): Promise<Product>{
-//     return this.productService.create(product);
-// };
+@Post('cadastrar')
+async cadastrar(@Body() data : Product): Promise<Product>{
+    return this.productService.cadastrar(data)
+    };
 
 // @Get(':id')
 // async getbyId(@Param('id') id : number) : Promise<Product>{
