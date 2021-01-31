@@ -20,6 +20,13 @@ export class UserService {
     
     user.email = data.email;
     user.senha = data.senha;
+    user.confirmarSenha = data.confirmarSenha;
+    user.endereco = data.endereco;
+    user.nome = data.nome;
+    user.pontoReferencia = data.pontoReferencia;
+    user.sobrenome = data.sobrenome;
+    user.telefone = data.telefone;
+    
 
     this.productRepository.save(user)
     .then((result) => {
