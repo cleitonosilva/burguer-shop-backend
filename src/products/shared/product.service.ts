@@ -1,5 +1,6 @@
 
 import { Injectable, Inject } from '@nestjs/common';
+import { error } from 'console';
 import { Repository } from 'typeorm';
 import { Product } from './product.entity';
 
@@ -13,4 +14,24 @@ export class ProductService {
   async listar(): Promise<Product[]> {
     return this.productRepository.find();
   }
+
+  async cadastrar(data: Product): Promise<any> {
+    let product = new Product();
+    product.categoria = data.categoria;
+    product.descricao = data.descricao;
+    product.grif = data.grif;
+    product.preco = data.preco;
+    product.produto = data.produto;
+    product.url = data.url;
+    this.productRepository.save(product)
+    .then((result) => {
+      return result.categoria
+      
+    })
+    .catch((error) => {
+      return error.message 
+    })
+    
+    
+  };
 } 
