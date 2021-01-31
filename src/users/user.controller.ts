@@ -6,17 +6,17 @@ import { UserService } from './shared/user.service';
 export class UserController {
 
     constructor(
-    private productService: UserService,
+    private userService: UserService,
     ){ }
 
 @Get('listarUser')
 async listar() : Promise<User[]>{
-     return this.productService.listar()
+     return this.userService.listar()
 };
 
 @Post('cadastrarUser')
 async cadastrar(@Body() data : User): Promise<User>{
-    return this.productService.cadastrar(data)
+    return this.userService.cadastrar(data)
     };
 
 // @Get(':id')
