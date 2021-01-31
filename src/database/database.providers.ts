@@ -5,7 +5,7 @@ export const databaseProviders = [
     provide: 'DATABASE_CONNECTION',
     useFactory: async () => await createConnection({
       type: 'mssql',
-      host: 'localhost',
+      host: 'burguershop.ddns.net',
       port: 1433,
       username: 'sistema',
       password: ')b0m&!N9(',
