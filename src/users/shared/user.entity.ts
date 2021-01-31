@@ -11,4 +11,22 @@ export class User {
   @Column('text')
   senha: string;
 
+  @Column('text')
+  endereco: string;
+
+  @Column('text')
+  telefone: string;
+
+  @Column('text')
+  pontoReferencia: string;
+
+  @Column('text')
+  confirmarSenha: string;
+
+  @Column('text')
+  sobrenome: string;
+  
+  @Column('text')
+  nome: string;
+  
 }
